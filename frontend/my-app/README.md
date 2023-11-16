@@ -4,8 +4,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Dependencies
 
-npm install axios
+```bash
+npm install axios\
 npm install react-bootstrap bootstrap
+```
 
 ## Available Scripts
 
