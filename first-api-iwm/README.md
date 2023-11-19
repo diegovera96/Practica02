@@ -10,6 +10,9 @@
 ## Instructions
 
 ```bash
+Crear una base de datos en mysql
+Renombrar .env.example a .env y configurar
+composer install
 php artisan key:generate
 php artisan migrate
 php artisan db:seed
