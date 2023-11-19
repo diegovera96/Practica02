@@ -15,25 +15,19 @@ class HobbySeeder extends Seeder
     {
         DB::table('hobbies')->insert([
             'name' => 'Futbol',
-            'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
+            'description' => 'Me apasiona el fútbol porque es un deporte que trasciende más allá de la competición en sí misma. Cada partido es una experiencia única, llena de emociones y momentos impredecibles que pueden cambiar el rumbo en cuestión de segundos.',
             'profile_id' => 1,
         ]);
 
         DB::table('hobbies')->insert([
             'name' => 'Modelado 3D',
-            'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
-            'profile_id' => 1,
-        ]);
-
-        DB::table('hobbies')->insert([
-            'name' => 'Animales',
-            'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
+            'description' => 'El modelado 3D es otra de mis fascinaciones, ya que me permite materializar mi creatividad y plasmar ideas en formas tridimensionales. La capacidad de dar vida a conceptos abstractos a través de software especializado me ofrece un espacio para explorar mi imaginación y mejorar mis habilidades técnicas.',
             'profile_id' => 1,
         ]);
 
         DB::table('hobbies')->insert([
             'name' => 'Tecnologia',
-            'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
+            'description' => 'La tecnología es un campo que siempre me ha cautivado por su constante evolución y su impacto transformador en la sociedad. Desde la invención de dispositivos innovadores hasta el desarrollo de nuevas soluciones tecnológicas, encuentro emocionante seguir de cerca los avances que mejoran nuestra forma de vida.',
             'profile_id' => 1,
         ]);
     }

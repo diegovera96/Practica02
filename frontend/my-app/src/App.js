@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Card, Button, CardTitle, CardText, Row, Col, Header, Container, Carousel } from 'react-bootstrap';
+import { Card, Button, CardTitle, CardText, Row, Col, Header, Container, Carousel, Accordion } from 'react-bootstrap';
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
@@ -11,14 +11,14 @@ import "bootstrap/dist/js/bootstrap.bundle.min";
 
 function App() {
   const [profile, setProfile] = useState();
-  const [interests, setInterests] = useState();
-  const [tools, setTools] = useState();
+  const [hobby, setHobby] = useState();
+  const [framework, setFramework] = useState();
 
   const getProfile = async () => {
     const response = await axios.get('http://127.0.0.1:8000/api/profile');
     setProfile(response.data.profile);
-    setInterests(response.data.interests);
-    setTools(response.data.tools);
+    setHobby(response.data.hobby);
+    setFramework(response.data.framework);
   };
 
   useEffect(() => {
@@ -26,21 +26,21 @@ function App() {
   }, []);
 
   const appBar = {
-    backgroundColor: '#ffc6c6',
+    backgroundColor: '#98A1AA',
     padding: '10px',
     height: '100vh',
   }
 
-  const profileBar = {
+  const titleBar = {
     padding: '10px',
-    backgroundColor: '#ffd4c6',
+    backgroundColor: '#8D9BA4',
     border: '1px solid black',
   }
 
-  const rowBar = {
-    backgroundColor: '#ffd4c6',
-    border: '1px solid black',
+  const bodyBar = {
     padding: '10px',
+    backgroundColor: '#C4C9CD',
+    border: '1px solid black',
   }
 
   const profileImage = {
@@ -51,20 +51,56 @@ function App() {
   }
 
   const slicesImage = {
-    height: '400px', 
-    objectFit: 'cover'
+    maxHeight: '400px',
+    width: 'auto',
+    objectFit: 'scale-down', 
+    marginTop: '300px',
   };
 
   const images = require.context('./components', true, /\.(png|webp)$/);
-  const ExampleCarouselImagePNG = images('./ExampleCarouselImage.png');
+  const modeladoPNG = images('./modelado.png');
+  const futbolPNG = images('./futbol.png');
+  const tecnologiaPNG = images('./tecnologia.png');
   const ExampleCarouselImageWEBP = images('./ExampleCarouselImage.webp');
 
   return (
     <div style={appBar} className="App">
 
+    <style>
+        {`
+          h3, h1, .accordion-header, acordion-body {
+            color: #424953;
+            font-family: 'Times New Roman'
+          }
+
+          h4 {
+            font-family: 'Times New Roman';
+            color: #4A4A4A;
+          }
+
+          h1 {
+            text-decoration: underline;
+          }
+
+          .accordion-button {
+            background-color: #c5c5c5;
+          }
+
+          .carousel-caption-name {
+            margin-bottom: 600px;
+          }
+
+          .carousel-caption-description {
+            margin-bottom: 400px;
+            color: #c5c5c5;
+          }
+        `}
+      </style>
+
+
     <Container>
       <Row>
-        <Col style={profileBar}>
+        <Col style={titleBar}>
           <Row className="d-flex align-items-center justify-content-center">
             <Col sm={1}>
               <img src={ExampleCarouselImageWEBP} alt="Avatar" style={profileImage}/>
@@ -84,7 +120,7 @@ function App() {
       </Row>
 
       <Row>
-        <Col style={rowBar} sm={4}>
+        <Col style={bodyBar} sm={4}>
           <Row className="d-flex align-items-center justify-content-center">
             <h1>Información</h1>
           </Row>
@@ -98,41 +134,50 @@ function App() {
             {profile ? profile.summary : 'Cargando...'}
           </h3>
         </Col>
-        <Col style={rowBar} sm={8}>
+        <Col style={bodyBar} sm={8}>
           <Row className="d-flex align-items-center justify-content-center">
             <h1>Hobbies</h1>
           </Row>
           <Carousel>
             <Carousel.Item>
+              <Carousel.Caption className="carousel-caption-name">
+                <h3>{hobby ? hobby[0].name : 'Cargando...'}</h3>
+              </Carousel.Caption>
               <img
                 className="d-block w-100"
-                src={ExampleCarouselImagePNG}
+                src={futbolPNG}
                 alt="First slide"
                 style={slicesImage}/>
-              <Carousel.Caption>
-              <h3>First slide</h3>
+              <Carousel.Caption className='carousel-caption-description'>
+                <h4>{hobby ? hobby[0].description : 'Cargando...'}</h4>
               </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
+              <Carousel.Caption className="carousel-caption-name">
+                <h3>{hobby ? hobby[1].name : 'Cargando...'}</h3>
+              </Carousel.Caption>
               <img
                 className="d-block w-100"
-                src={ExampleCarouselImagePNG}
-                alt="First slide"
+                src={modeladoPNG}
+                alt="Second slide"
                 style={slicesImage}
                 />
-              <Carousel.Caption>
-              <h3>First slide</h3>
+              <Carousel.Caption className='carousel-caption-description'>
+                <h4>{hobby ? hobby[1].description : 'Cargando...'}</h4>
               </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
+              <Carousel.Caption className="carousel-caption-name">
+                <h3>{hobby ? hobby[2].name : 'Cargando...'}</h3>
+              </Carousel.Caption>
               <img
                 className="d-block w-100"
-                src={ExampleCarouselImagePNG}
-                alt="First slide"
+                src={tecnologiaPNG}
+                alt="Third slide"
                 style={slicesImage}
                 />
-              <Carousel.Caption>
-              <h3>First slide</h3>
+              <Carousel.Caption className='carousel-caption-description'>
+                <h4>{hobby ? hobby[2].description : 'Cargando...'}</h4>
               </Carousel.Caption>
             </Carousel.Item>
           </Carousel>
@@ -140,8 +185,33 @@ function App() {
       </Row>
       
       <Row>
-        <Col>
-          Intereses
+        <Col style={bodyBar} sm={12}>
+          <Accordion defaultActiveKey="0">
+            <Accordion.Item eventKey="0">
+              <Accordion.Header>{framework ? framework[0].name : 'Cargando...'}</Accordion.Header>
+              <Accordion.Body>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+                minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                aliquip ex ea commodo consequat. Duis aute irure dolor in
+                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                culpa qui officia deserunt mollit anim id est laborum.
+              </Accordion.Body>
+            </Accordion.Item>
+            <Accordion.Item eventKey="1">
+              <Accordion.Header>{framework ? framework[1].name : 'Cargando...'}</Accordion.Header>
+              <Accordion.Body>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+                minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                aliquip ex ea commodo consequat. Duis aute irure dolor in
+                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                culpa qui officia deserunt mollit anim id est laborum.
+              </Accordion.Body>
+            </Accordion.Item>
+          </Accordion>
         </Col>
       </Row>
     </Container>

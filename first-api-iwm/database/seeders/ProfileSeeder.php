@@ -16,10 +16,10 @@ class ProfileSeeder extends Seeder
         DB::table('profiles')->insert([
             'name' => 'John',
             'lastname' => 'Doe',
-            'email' => 'correo',
+            'email' => 'correo@gmail.com',
             'country' => 'Mexico',
             'city' => 'CDMX',
-            'summary' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
+            'summary' => 'Mi curiosidad innata me impulsa a explorar tendencias en tecnologías de la información',
         ]);
     }
 }

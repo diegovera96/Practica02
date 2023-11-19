@@ -19,5 +19,12 @@ class FrameworkSeeder extends Seeder
             'year' => '2019',
             'profile_id' => 1,
         ]);
+
+        DB::table('frameworks')->insert([
+            'name' => 'React',
+            'level' => 'Intermedio',
+            'year' => '2023',
+            'profile_id' => 1,
+        ]);
     }
 }
