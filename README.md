@@ -22,4 +22,5 @@ php artisan serve
 cd frontend/my-app
 npm install axios
 npm install react-bootstrap bootstrap
+npm start
 ```
