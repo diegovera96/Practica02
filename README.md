@@ -1,11 +1,9 @@
 ## CLONE
-
 ```bash
 git clone git@github.com:diegovera96/Practica02.git
 ```
 
 ## BACKEND
-
 ```bash
 cd first-api-iwm
 Create DB in mysql
@@ -14,6 +12,9 @@ composer install
 php artisan key:generate
 php artisan migrate
 php artisan db:seed
+```
+### To run
+```bash
 php artisan serve --host=0.0.0.0
 ```
 
@@ -32,7 +33,6 @@ npm start
 ```
 
 ## MOBILE
-
 ```bash
 cd mobile/portafolio
 npm install
