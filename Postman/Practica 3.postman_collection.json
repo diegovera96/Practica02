@@ -1,0 +1,65 @@
+{
+	"info": {
+		"_postman_id": "facf5585-d9ac-4b7e-8a79-b7a3dcd4901c",
+		"name": "Practica 3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29363778"
+	},
+	"item": [
+		{
+			"name": "Practica3",
+			"item": [
+				{
+					"name": "Obtener perfil",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/profile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "//reemplazar type por profile, framework o hobby.\n//a los dos últimos agregar una id.\n\n{\n    \"name\": \"Diego\",\n    \"type\": \"profile\"\n}\n\n//Framework\n/*{\n    \"id\": 1\n    \"name\": \"Laravel\",\n    \"level\": \"Avanzado\",\n    \"year\": \"2019\"\n}*/\n\n//Hobby\n/*{\n    \"id\": 1\n    \"name\": \"futbol\",\n    \"description\": \"pero cuantas copas tenes\"\n}*/",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/profile/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"profile",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

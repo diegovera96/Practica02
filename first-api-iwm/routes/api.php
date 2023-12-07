@@ -21,3 +21,4 @@ Route::get('appointments/{appointment}',[\App\Http\Controllers\AppointmentContro
 Route::put('appointments/{appointment}',[\App\Http\Controllers\AppointmentController::class,'update']);
 
 Route::get('profile', [\App\Http\Controllers\ProfileController::class,'profile']);
+Route::put('profile/{profile}',[\App\Http\Controllers\ProfileController::class,'update']);
